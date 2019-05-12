@@ -4,5 +4,11 @@ export const cards = [
   "write about it.",
   "be non-consensus and right.",
   "What if it/they switched genders? What would change?",
-  
+  "Who hasn't been considered yet?",
+  "Who are the stakeholders? Even those who are not directly impacted, only indirectly so.",
+  "Who is the appropriate audience?",
+  "How do we promote diversity?",
+  "Who is the customer/user anyway?",
+  "Iterate.",
+  "Where is the descrimination happening?",
 ];
