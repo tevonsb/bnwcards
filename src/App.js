@@ -1,12 +1,33 @@
 import React, { Component } from 'react';
 
 import './App.css';
-import TextScramble from './Text.js';
 import { cards } from './cards.js';
+const { Pool } = require('pg');
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: true
+});
+
+
 const title = "Black and White Cards";
 
 
 const description = ["The purpose of these cards is to jog the creative mindset. Sometimes we get stuck in the way we think about thing, the hope is that in considering something tangential, we get a different view of the problem at home. These were developed from interviews during the Stanford class Beyond Pink and Blue, and thus have a specific focus on gender in tech."]
+
+async function loadCards() {
+  console.log('loading cards...');
+  try {
+    const client = await pool.connect()
+    const result = await client.query('SELECT * FROM cards');
+    const results = { 'results': (result) ? result.rows : null};
+    console.log(results);
+    console.log('NO ERRORS IN DB CONNECTION')
+    client.release();
+  } catch(err) {
+    console.log('DB ERROR')
+    console.log(err);
+  }
+}
 
 
 class App extends Component {
@@ -22,6 +43,7 @@ class App extends Component {
   }
 
   componentDidMount(){
+    loadCards();
   }
 
   selectCard(){
