@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "dns": "file:./src/mock/dns",
-    "gsap": "^2.0.2",
+    "gsap": "^3.6.0",
     "gulp-help": "^1.6.1",
     "pg": "^7.11.0",
     "pg-native": "^3.0.0",
